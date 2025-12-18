@@ -1,8 +1,8 @@
-# Hotlap Server
+# OOPS Server
 
 ## 프로젝트 개요
 
-Hotlap Server는 헥사고날/클린 아키텍처 접근 방식을 따르는 Spring Boot 애플리케이션입니다. 다양한 도메인 엔티티를 관리하기 위한 RESTful API를 제공합니다.
+OOPS Server는 헥사고날/클린 아키텍처 접근 방식을 따르는 Spring Boot 애플리케이션입니다. 다양한 도메인 엔티티를 관리하기 위한 RESTful API를 제공합니다.
 
 ## 아키텍처
 
@@ -25,7 +25,7 @@ Hotlap Server는 헥사고날/클린 아키텍처 접근 방식을 따르는 Spr
 ## 패키지 구조
 
 ```
-com.hotlap.server
+com.oops
 ├── application        # 애플리케이션 서비스 (유스케이스)
 │   └── foo
 │       ├── model

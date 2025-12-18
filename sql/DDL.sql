@@ -1,5 +1,4 @@
-CREATE
-DATABASE hotlap CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE oops CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 CREATE TABLE `foo`
 (
