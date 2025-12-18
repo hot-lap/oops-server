@@ -14,7 +14,7 @@ public class ApplicationExceptionHandler {
     @ExceptionHandler(ApplicationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleApplicationException(ApplicationException e) {
-        log.error("[ERROR] BusinessException -> {}, {}", e.getMessage(), e.getCause());
+        log.error("[ERROR] BusinessException -> {}", e.getMessage(), e);
         return new ErrorResponse(e.getErrorCode().name(), e.getMessage());
     }
 }
