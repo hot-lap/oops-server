@@ -13,7 +13,12 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 public class AsyncConfig extends AsyncConfigurerSupport {
     @Bean(name = "taskExecutor")
     public ThreadPoolTaskExecutor taskExecutor() {
-        var executor = new ExecutorGenerator(10, 15, 15, "taskExecutor");
+        var executor = new ExecutorGenerator(
+                10,
+                15,
+                15,
+                "taskExecutor"
+        );
 
         return executor.generate();
     }

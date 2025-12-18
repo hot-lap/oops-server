@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponse handleException(Exception e) {
-        log.error("[ERROR] Exception -> {}", e.getMessage());
+        log.error("[ERROR] Exception -> {}, {}", e.getMessage(), e.getCause());
 
         var type = ErrorCode.INTERNAL_SERVER_ERROR;
 
