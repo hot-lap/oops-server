@@ -1,6 +1,5 @@
 package com.hotlap.server.inbound.advice;
 
-import com.hotlap.server.common.exception.ApplicationException;
 import com.hotlap.server.common.exception.ErrorCode;
 import com.hotlap.server.inbound.advice.model.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -12,16 +11,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(ApplicationException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse handleBusinessException(ApplicationException e) {
-        log.error("[ERROR] BusinessException -> {}", e.getMessage());
-
-        String message = resolveMessage(e, e.getErrorCode());
-
-        return new ErrorResponse(e.getErrorCode().name(), message);
-    }
-
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponse handleException(Exception e) {
@@ -34,7 +23,7 @@ public class GlobalExceptionHandler {
         return new ErrorResponse(type.name(), message);
     }
 
-    private static String resolveMessage(Exception e, ErrorCode code) {
+    private String resolveMessage(Exception e, ErrorCode code) {
         if (e.getMessage() == null || e.getMessage().isBlank()) {
             return code.getMessage();
         }
