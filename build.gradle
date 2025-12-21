@@ -21,6 +21,7 @@ repositories {
 dependencies {
     /** spring */
     implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
@@ -29,9 +30,18 @@ dependencies {
     /** database */
     runtimeOnly 'com.mysql:mysql-connector-j'
 
+    /** jwt */
+    implementation 'com.auth0:java-jwt:4.5.0'
+
+    /** encryption */
+    implementation 'commons-codec:commons-codec:1.19.0'
+
     /** lombok */
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // Problem Details 고려..
+//    implementation 'org.zalando:problem-spring-web:0.29.1'
 
     /** swagger */
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.0'
@@ -42,6 +52,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testRuntimeOnly 'com.h2database:h2'
 }
 
 tasks.named('test') {
