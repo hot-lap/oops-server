@@ -44,4 +44,13 @@ public class Post extends BaseEntity {
 
     @Column(name = "feeling")
     private String feeling;
+
+    public void update(String content, ImpactIntensity impactIntensity,
+            MismatchCategory category, String cause, String feeling) {
+        this.content = content;
+        this.impactIntensity = impactIntensity;
+        this.category = category;
+        this.cause = cause;
+        this.feeling = feeling;
+    }
 }
